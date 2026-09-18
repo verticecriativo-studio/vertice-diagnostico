@@ -1,0 +1,12 @@
+{
+  "pkg": "vertice-design-system",
+  "globalName": "VerticeDS",
+  "shape": "package",
+  "buildCmd": "npm run build",
+  "cssEntry": "dist/styles.css",
+  "readmeHeader": ".design-sync/conventions.md",
+  "overrides": {
+    "TextArea": { "cardMode": "column" },
+    "TextField": { "cardMode": "column" }
+  }
+}
