@@ -32,6 +32,7 @@ Two-family type system: **Plus Jakarta Sans** (weight 500–800) for all-caps ey
 
 ## Components (20, grouped by role)
 
+- **Brand**: `Logo` (icon + wordmark lockup, real artwork), `LogoMark` (icon alone, for compact slots like a footer).
 - **Layout shells**: `Hero` (+ `HeroStat` children), `Card` (numbered question container), `ContactCard` (dark final-step container), `Footer`, `DraftBar`.
 - **Question content**: `QuestionLabel`, `QuestionTitle`, `ErrorMessage`.
 - **Inputs**: `RadioGroup` (composes `RadioOption`), `TextField`, `TextArea`, `CheckboxRow`.
@@ -67,6 +68,10 @@ function Step({ value, onChange }) {
   );
 }
 ```
+
+## Brand mark
+
+`Logo`/`LogoMark` render the real Vértice Criativo logo (sourced from the team's Canva brand folder), not a placeholder. Both take `tone="light"|"dark"` — pick `dark` (white wordmark) on the Hero's rust background, `ContactCard`, `Footer`, or `DraftBar`; `light` (navy wordmark) everywhere else. Never recolor or redraw the mark — always render it via these components.
 
 ## Where the truth lives
 
