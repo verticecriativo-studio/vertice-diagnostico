@@ -59,7 +59,7 @@ export { Footer } from './components/Footer';
 export type { FooterProps } from './components/Footer';
 
 export { Logo, LogoMark, LogoStacked } from './components/Logo';
-export type { LogoProps, LogoMarkProps, LogoStackedProps } from './components/Logo';
+export type { LogoProps, LogoMarkProps, LogoStackedProps, LogoTone } from './components/Logo';
 
 export { TagPill } from './components/TagPill';
 export type { TagPillProps } from './components/TagPill';

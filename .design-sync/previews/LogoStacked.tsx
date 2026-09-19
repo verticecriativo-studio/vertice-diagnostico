@@ -8,3 +8,5 @@ export const NoTagline = () => (
     <LogoStacked tone="dark" tagline={false} height={120} />
   </div>
 );
+
+export const Mono = () => <LogoStacked tone="mono" height={140} />;

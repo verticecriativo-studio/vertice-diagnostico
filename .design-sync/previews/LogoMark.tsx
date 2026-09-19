@@ -8,3 +8,5 @@ export const Dark = () => (
     <LogoMark tone="dark" size={48} />
   </div>
 );
+
+export const Mono = () => <LogoMark tone="mono" size={48} />;

@@ -119,7 +119,7 @@ As apresentações comerciais da Vértice (formato retrato, ~9:16) usam os mesmo
 
 ## A marca
 
-`LogoMark` (símbolo sozinho), `Logo` (lockup horizontal — símbolo + nome) e `LogoStacked` (lockup vertical, com `tagline` opcional "Estratégia e Design") renderizam a arte real da Vértice Criativo, nunca um placeholder. Todos aceitam `tone="light"|"dark"` — use `dark` (nome/traços em branco) sobre o fundo terracota do Hero, `ContactCard`, `Footer`, `DraftBar` ou `SectionDivider`; `light` (nome em azul-marinho) em todo o resto.
+`LogoMark` (símbolo sozinho), `Logo` (lockup horizontal — símbolo + nome) e `LogoStacked` (lockup vertical, com `tagline` opcional "Estratégia e Design") renderizam a arte real da Vértice Criativo, nunca um placeholder. `LogoMark` e `LogoStacked` aceitam `tone="light"|"dark"|"mono"`; `Logo` aceita apenas `"light"|"dark"` (não existe versão `mono` do lockup horizontal — use `LogoStacked` se precisar de uma versão de uma cor só). `dark` (nome/traços em branco) é para o fundo terracota do Hero, `ContactCard`, `Footer`, `DraftBar` ou `SectionDivider`; `light` (nome em azul-marinho) em todo o resto; `mono` (símbolo e nome inteiros em terracota sólido) é para aplicações de uma cor só — carimbo, marca d'água, impressão preto e branco.
 
 - **`Logo`** (horizontal) é o padrão para cabeçalhos e rodapés.
 - **`LogoStacked`** é para momentos de destaque — capa de um one-pager, abertura de um slide/apresentação, tela de carregamento — onde a marca pode ocupar mais espaço vertical.
