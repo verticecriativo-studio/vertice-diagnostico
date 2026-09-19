@@ -1,13 +1,13 @@
 import * as React from 'react';
 
 export interface FooterProps {
-  /** Small brand mark rendered before the brand name, e.g. a logo `<img>` or `<svg>`. */
+  /** Marca pequena exibida antes do nome da marca, ex: um `<img>` ou `<svg>` do logotipo. */
   brandMark?: React.ReactNode;
   brandName: React.ReactNode;
   meta?: React.ReactNode;
 }
 
-/** Dark page footer with a brand lockup on the left and uppercase meta text on the right. */
+/** Rodapé escuro da página com o lockup da marca à esquerda e texto informativo em caixa alta à direita. */
 export function Footer({ brandMark, brandName, meta }: FooterProps) {
   return (
     <footer className="vds-footer">

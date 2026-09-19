@@ -60,3 +60,42 @@ export type { FooterProps } from './components/Footer';
 
 export { Logo, LogoMark } from './components/Logo';
 export type { LogoProps, LogoMarkProps } from './components/Logo';
+
+export { TagPill } from './components/TagPill';
+export type { TagPillProps } from './components/TagPill';
+
+export { Highlight } from './components/Highlight';
+export type { HighlightProps } from './components/Highlight';
+
+export { StatementSection } from './components/StatementSection';
+export type { StatementSectionProps } from './components/StatementSection';
+
+export { SplitFeature } from './components/SplitFeature';
+export type { SplitFeatureProps } from './components/SplitFeature';
+
+export { ServiceGrid } from './components/ServiceGrid';
+export type { ServiceGridProps, ServiceGridItem } from './components/ServiceGrid';
+
+export { FounderBio } from './components/FounderBio';
+export type { FounderBioProps } from './components/FounderBio';
+
+export { CTASection } from './components/CTASection';
+export type { CTASectionProps } from './components/CTASection';
+
+export { ContactInfoGrid } from './components/ContactInfoGrid';
+export type { ContactInfoGridProps, ContactInfoItem } from './components/ContactInfoGrid';
+
+export { SectionDivider } from './components/SectionDivider';
+export type { SectionDividerProps } from './components/SectionDivider';
+
+export { ProcessSteps } from './components/ProcessSteps';
+export type { ProcessStepsProps, ProcessStep } from './components/ProcessSteps';
+
+export { SocialFrame } from './components/SocialFrame';
+export type { SocialFrameProps } from './components/SocialFrame';
+
+export { PostCover } from './components/PostCover';
+export type { PostCoverProps } from './components/PostCover';
+
+export { StoryCover } from './components/StoryCover';
+export type { StoryCoverProps } from './components/StoryCover';

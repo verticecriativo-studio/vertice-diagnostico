@@ -1,14 +1,14 @@
 import * as React from 'react';
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  /** Visual style. `primary` is the pill call-to-action, `ghost` is the underlined text action. */
+  /** Estilo visual. `primary` é o botão principal em formato pílula, `ghost` é a ação em texto sublinhado. */
   variant?: 'primary' | 'ghost';
-  /** Accent used on `primary` buttons in dark contexts, e.g. the contact step. */
+  /** Cor de destaque usada em botões `primary` em contextos escuros, ex: a etapa de contato. */
   tone?: 'forest' | 'rust';
   children: React.ReactNode;
 }
 
-/** Vértice's pill call-to-action and ghost text button, used to drive the survey's step navigation. */
+/** Botão principal (pílula) e botão de texto da Vértice, usados para navegar entre as etapas da pesquisa. */
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(function Button(
   { variant = 'primary', tone, className, children, ...rest },
   ref

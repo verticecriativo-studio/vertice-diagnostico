@@ -8,7 +8,7 @@ export interface RadioOptionProps {
   children: React.ReactNode;
 }
 
-/** A single custom-styled radio choice (hidden native input + visible dot), meant to be composed inside `RadioGroup`. */
+/** Uma opção de rádio com estilo personalizado (input nativo oculto + indicador visível), feita para ser usada dentro de `RadioGroup`. */
 export function RadioOption({ name, value, checked, onChange, children }: RadioOptionProps) {
   return (
     <label className="vds-opt" data-selected={checked ? 'true' : undefined}>

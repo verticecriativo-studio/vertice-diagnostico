@@ -3,11 +3,11 @@ import * as React from 'react';
 export interface DoneScreenProps {
   heading: React.ReactNode;
   children?: React.ReactNode;
-  /** Mark rendered in the round badge, e.g. "✓". */
+  /** Marca exibida no selo redondo, ex: "✓". */
   mark?: React.ReactNode;
 }
 
-/** Centered confirmation state shown after the survey is submitted: round mark, heading, and a short message. */
+/** Tela de confirmação centralizada exibida após o envio da pesquisa: marca redonda, título e uma mensagem curta. */
 export function DoneScreen({ heading, children, mark = '✓' }: DoneScreenProps) {
   return (
     <div className="vds-done-screen">

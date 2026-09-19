@@ -5,7 +5,7 @@ export interface ContactCardProps {
   className?: string;
 }
 
-/** Dark full-bleed card used for the survey's final "leave your contact" step — wraps a `QuestionLabel`, heading, `PerkList`, `TextField`s and a `NavRow`. */
+/** Cartão escuro de largura total usado na etapa final "deixe seu contato" da pesquisa — envolve um `QuestionLabel`, título, `PerkList`, campos `TextField` e um `NavRow`. */
 export function ContactCard({ children, className }: ContactCardProps) {
   const classes = ['vds-contact-card', className].filter(Boolean).join(' ');
   return <div className={classes}>{children}</div>;

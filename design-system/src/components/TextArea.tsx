@@ -2,7 +2,7 @@ import * as React from 'react';
 
 export interface TextAreaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {}
 
-/** Free-text answer field for open-ended questions; resizable, styled to match `TextField`. */
+/** Campo de resposta livre para perguntas abertas; redimensionável, com o mesmo estilo do `TextField`. */
 export const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(function TextArea(
   { className, ...rest },
   ref

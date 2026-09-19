@@ -1,18 +1,18 @@
 import * as React from 'react';
 
 export interface ProgressRailProps {
-  /** Total number of steps in the flow. */
+  /** Número total de etapas do fluxo. */
   total: number;
-  /** 1-based index of the current step. */
+  /** Índice da etapa atual (começando em 1). */
   current: number;
-  /** Text shown at the left of the label row, e.g. "Pergunta 3". */
+  /** Texto exibido à esquerda da linha de rótulo, ex: "Pergunta 3". */
   label?: React.ReactNode;
-  /** Text shown at the right of the label row, e.g. "38%". */
+  /** Texto exibido à direita da linha de rótulo, ex: "38%". */
   percentLabel?: React.ReactNode;
   className?: string;
 }
 
-/** Segmented progress indicator for a multi-step form: a label row plus a rail of ticks (done / active / upcoming). */
+/** Indicador de progresso segmentado para um formulário de várias etapas: uma linha de rótulo mais uma trilha de marcadores (concluído / atual / pendente). */
 export function ProgressRail({ total, current, label, percentLabel, className }: ProgressRailProps) {
   const classes = ['vds-progress', className].filter(Boolean).join(' ');
   return (

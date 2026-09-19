@@ -1,13 +1,13 @@
 import * as React from 'react';
 
 export interface TextFieldProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type'> {
-  /** Visible label rendered above the input. Also used to derive `id`/`htmlFor` when `id` is omitted. */
+  /** Rótulo visível exibido acima do campo. Também usado para gerar `id`/`htmlFor` quando `id` não é informado. */
   label?: React.ReactNode;
-  /** `dark` matches the contact step's dark card background. */
+  /** `dark` combina com o fundo escuro do cartão da etapa de contato. */
   tone?: 'light' | 'dark';
 }
 
-/** A labeled single-line text input, matching the survey's field styling in both light and dark (contact card) contexts. */
+/** Um campo de texto de uma linha com rótulo, seguindo o estilo dos campos da pesquisa em contextos claros e escuros (cartão de contato). */
 export const TextField = React.forwardRef<HTMLInputElement, TextFieldProps>(function TextField(
   { label, tone = 'light', id, className, ...rest },
   ref

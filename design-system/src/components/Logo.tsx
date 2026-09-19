@@ -11,28 +11,28 @@ const MARK_ASPECT = 297 / 296;
 const WORDMARK_ASPECT = 363 / 43;
 
 export interface LogoMarkProps {
-  /** `light` for light/white backgrounds, `dark` for dark or rust backgrounds. */
+  /** `light` para fundos claros/brancos, `dark` para fundos escuros ou terracota. */
   tone?: 'light' | 'dark';
-  /** Rendered size (width and height) in px. */
+  /** Tamanho de exibição (largura e altura) em px. */
   size?: number;
   className?: string;
 }
 
-/** The Vértice Criativo symbol alone (no wordmark) — for compact slots like `Footer`'s brand mark. */
+/** O símbolo da Vértice Criativo sozinho (sem o nome por extenso) — para espaços compactos, como a marca do `Footer`. */
 export function LogoMark({ tone = 'light', size = 28, className }: LogoMarkProps) {
   const src = tone === 'dark' ? MARK_DARK : MARK_LIGHT;
   return <img src={src} alt="Vértice Criativo" height={size} width={Math.round(size * MARK_ASPECT)} className={className} />;
 }
 
 export interface LogoProps {
-  /** `light` (navy wordmark) for light/white backgrounds, `dark` (white wordmark) for dark or rust backgrounds. */
+  /** `light` (nome em azul-marinho) para fundos claros/brancos, `dark` (nome em branco) para fundos escuros ou terracota. */
   tone?: 'light' | 'dark';
-  /** Rendered height of the symbol in px — the wordmark scales to match. */
+  /** Altura de exibição do símbolo em px — o nome por extenso é escalado proporcionalmente. */
   height?: number;
   className?: string;
 }
 
-/** The Vértice Criativo logo lockup: symbol + wordmark side by side, the brand's official artwork. */
+/** O logotipo completo da Vértice Criativo: símbolo + nome lado a lado, a arte oficial da marca. */
 export function Logo({ tone = 'light', height = 40, className }: LogoProps) {
   const markSrc = tone === 'dark' ? MARK_DARK : MARK_LIGHT;
   const wordmarkSrc = tone === 'dark' ? WORDMARK_DARK : WORDMARK_LIGHT;

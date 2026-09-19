@@ -7,14 +7,14 @@ export interface RadioGroupOption {
 }
 
 export interface RadioGroupProps {
-  /** Shared `name` for the underlying radio inputs. */
+  /** `name` compartilhado pelos campos de rádio internos. */
   name: string;
   options: RadioGroupOption[];
   value?: string;
   onChange?: (value: string) => void;
 }
 
-/** A vertical stack of `RadioOption`s sharing one selection, the survey's standard single-choice question layout. */
+/** Uma pilha vertical de `RadioOption`s compartilhando uma única seleção — o layout padrão de pergunta de escolha única da pesquisa. */
 export function RadioGroup({ name, options, value, onChange }: RadioGroupProps) {
   return (
     <div className="vds-options" data-name={name}>

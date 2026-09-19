@@ -2,12 +2,12 @@ import * as React from 'react';
 
 export interface QuestionLabelProps {
   children: React.ReactNode;
-  /** Trailing muted tag, e.g. "(opcional)". */
+  /** Marcador discreto no final, ex: "(opcional)". */
   tag?: React.ReactNode;
   className?: string;
 }
 
-/** Small uppercase eyebrow-style label placed above a `QuestionTitle` inside a `Card` (e.g. "Situação atual"). */
+/** Rótulo pequeno em caixa alta no estilo eyebrow, exibido acima de um `QuestionTitle` dentro de um `Card` (ex: "Situação atual"). */
 export function QuestionLabel({ children, tag, className }: QuestionLabelProps) {
   const classes = ['vds-q-label', className].filter(Boolean).join(' ');
   return (

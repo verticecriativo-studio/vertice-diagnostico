@@ -1,12 +1,12 @@
 import * as React from 'react';
 
 export interface DraftBarProps {
-  /** Short badge text, e.g. "RASCUNHO". */
+  /** Texto curto do selo, ex: "RASCUNHO". */
   tag: React.ReactNode;
   children: React.ReactNode;
 }
 
-/** Sticky top banner flagging a non-production/preview mode of the page. */
+/** Faixa fixa no topo sinalizando um modo de pré-visualização/não produção da página. */
 export function DraftBar({ tag, children }: DraftBarProps) {
   return (
     <div className="vds-draftbar">

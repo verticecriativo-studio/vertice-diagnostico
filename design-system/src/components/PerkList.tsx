@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 export interface Perk {
-  /** Short marker rendered inside the round icon, e.g. "✓". */
+  /** Marcador curto exibido dentro do ícone redondo, ex: "✓". */
   icon?: React.ReactNode;
   text: React.ReactNode;
 }
@@ -10,7 +10,7 @@ export interface PerkListProps {
   perks: Perk[];
 }
 
-/** Highlighted checklist of benefits shown on the contact step (rust-tinted panel with round check icons). */
+/** Lista de benefícios em destaque exibida na etapa de contato (painel com tom terracota e ícones redondos de confirmação). */
 export function PerkList({ perks }: PerkListProps) {
   return (
     <ul className="vds-perks">

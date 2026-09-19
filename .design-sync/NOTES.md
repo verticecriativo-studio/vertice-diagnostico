@@ -4,6 +4,10 @@
 
 The repo had no component library — only a single static `index.html` (the Diagnóstico de Marketing survey page, embedded base64 fonts and all). At the user's request this sync **built** `design-system/` from scratch as a real React/TypeScript component library that ports that page's visual language 1:1 (colors, both fonts as real `.woff2` files, all 20 UI patterns: Hero, Card, RadioGroup, ContactCard, etc.). It is not a reimplementation of an existing DS — it *is* the DS now; `index.html` itself was left untouched.
 
+## Language
+
+At the user's request, all component JSDoc comments, the `styles.css` header comment, and `.design-sync/conventions.md` were translated to Portuguese (the team's language and the product's own language). Code identifiers (component names, prop names, CSS class names) were deliberately **left in English** — that's the React/TS convention and mixing languages there would hurt maintainability more than it helps. Keep new component docs in Portuguese to stay consistent; keep new identifiers in English.
+
 ## Build
 
 - `pkg`: `vertice-design-system`, built with `tsup` (`design-system/npm run build` → `dist/index.js` + `dist/index.d.ts` + `dist/styles.css` + `dist/fonts/`).
@@ -13,7 +17,23 @@ The repo had no component library — only a single static `index.html` (the Dia
 
 ## Preview scope
 
-All 22 components were authored and graded `good` (none left on the floor card) — the component count is small enough that "author everything" was the obvious choice.
+All 35 components were authored and graded `good` (none left on the floor card) — the component count is small enough that "author everything" was the obvious choice.
+
+## Templates expansion (page sections, Instagram posts, presentation slides)
+
+At the user's request this sync grew from a 22-component survey-only kit into a 35-component system covering three more use cases, all based on real Vértice Criativo material read from Canva (not invented from scratch):
+
+- **Page sections** (`StatementSection`, `SplitFeature`, `ServiceGrid`, `FounderBio`, `CTASection`, `ContactInfoGrid`, `SectionDivider`, `ProcessSteps`, plus `Hero`'s new `media` prop): patterns lifted from the "Vértice Criativo" one-pager site (`DAGtVSS42EY`) and the commercial-presentation deck (`DAG7WV89GkE`).
+- **Instagram templates** (`SocialFrame`, `PostCover`, `StoryCover`): patterns lifted from the real carousel post (`DAG9p1CvuuM`) and the real Instagram Story design (`DAG90hewhGo`) in the team's own Canva folder. The user also pasted a screenshot of Canva's own template gallery as a style reference mid-task — confirmed it matches the `PostCover` pattern already built (full-bleed photo + gradient scrim + short headline + arrow CTA); didn't adopt the screenshot's serif/script fonts since those aren't in the real Vértice type system (Plus Jakarta Sans + Quicksand only).
+- **Presentation slides**: no new components — they reuse the page-section primitives (`StatementSection`, `SectionDivider`, `ProcessSteps`) framed by `SocialFrame ratio="9:16"`, since the real decks are portrait-format and visually identical to the "statement"/"divider" page patterns.
+- Two new text primitives (`TagPill`, `Highlight`) support both families — pill tags and colored-word emphasis inside headings, as seen throughout the real material.
+- All photography in these components is **caller-supplied** (`image`/`media`/`photo` props) — nothing here ships an image. Previews use locally-generated inline-SVG placeholders (solid color + label text), never real client photos or unlicensed stock images, both for correctness (previews must render standalone, no network fetch) and because template components should be content-agnostic by design.
+
+**Bugs found and fixed during preview authoring** (useful if similar patterns get added later):
+- `.vds-section-divider-heading` inherited `color` from the `.vds-pattern-dots[data-tone=dark]` rule it shares an element with (that rule sets a very transparent rust for the dot pattern's `currentColor`) — the heading rendered almost invisible. Fixed by giving the heading its own explicit `color`. **Watch for this whenever a text element and a `currentColor`-driven background pattern share the same DOM node.**
+- `SocialFrame`'s children used `width: 100%` inside a `display:flex` row with no `min-width: 0` — classic flexbox min-content-width bug, caused composed text to overflow and get clipped by `overflow: hidden` instead of wrapping. Fixed by adding `min-width: 0`.
+- Several headings use `clamp(min, Nvw, max)` for responsive type. **`vw` resolves against the browser viewport, not the component's actual container** — inside a narrow `SocialFrame` (e.g. a 200px-wide story preview) these always rendered at the clamp's *max* size regardless of the frame being much narrower, overflowing badly. There's no full fix in place (would need CSS container queries — `container-type`/`cqw` — which weren't adopted to keep the CSS simple); the mitigation is `overflow-wrap: break-word` on the affected headings so an oversized word wraps (ugly mid-word break) instead of clipping/vanishing past the frame edge. **If `SocialFrame` gets heavy real-world use at very small preview sizes, revisit with container queries.**
+- `StoryCover` originally used a `writing-mode: vertical-rl` rotated headline along the left edge (matching the real Instagram Story's aesthetic exactly) — abandoned after it visually collided with the top-right note text block in narrow frames (transform + vertical writing-mode sizing wasn't predictable enough to bound reliably). Replaced with a bottom-anchored horizontal heading (same pattern as `PostCover`) — less true to the specific reference image, but robust at any frame size. If someone wants the rotated-text look back, it needs real testing across frame sizes, not just the default preview size.
 
 ## Brand mark (Logo / LogoMark)
 
