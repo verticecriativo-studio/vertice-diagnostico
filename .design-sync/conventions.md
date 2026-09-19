@@ -119,7 +119,13 @@ As apresentações comerciais da Vértice (formato retrato, ~9:16) usam os mesmo
 
 ## A marca
 
-`Logo`/`LogoMark` renderizam o logotipo real da Vértice Criativo (extraído da pasta de marca da equipe no Canva), nunca um placeholder. Ambos aceitam `tone="light"|"dark"` — use `dark` (nome em branco) sobre o fundo terracota do Hero, `ContactCard`, `Footer`, `DraftBar` ou `SectionDivider`; `light` (nome em azul-marinho) em todo o resto. Nunca recolorir ou redesenhar a marca — sempre renderizá-la através desses componentes.
+`LogoMark` (símbolo sozinho), `Logo` (lockup horizontal — símbolo + nome) e `LogoStacked` (lockup vertical, com `tagline` opcional "Estratégia e Design") renderizam a arte real da Vértice Criativo, nunca um placeholder. Todos aceitam `tone="light"|"dark"` — use `dark` (nome/traços em branco) sobre o fundo terracota do Hero, `ContactCard`, `Footer`, `DraftBar` ou `SectionDivider`; `light` (nome em azul-marinho) em todo o resto.
+
+- **`Logo`** (horizontal) é o padrão para cabeçalhos e rodapés.
+- **`LogoStacked`** é para momentos de destaque — capa de um one-pager, abertura de um slide/apresentação, tela de carregamento — onde a marca pode ocupar mais espaço vertical.
+- **`LogoMark`** é para espaços muito compactos (ex: o ícone de 28px no `Footer`). Em tamanhos pequenos os traços internos do símbolo naturalmente perdem nitidez — isso é esperado, não é um defeito do componente.
+
+Nunca recolorir ou redesenhar a marca à mão — sempre renderizá-la através desses três componentes.
 
 ## Onde está a verdade
 
