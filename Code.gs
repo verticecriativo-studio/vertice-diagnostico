@@ -27,10 +27,11 @@ var COLUNAS_RESPOSTAS = [
   "q2_gasto_90_dias",
   "q5_investimento",
   "topa_call",
-  "consentimento_lgpd"
+  "consentimento_lgpd",
+  "origem"
 ];
 
-var COLUNAS_EVENTOS = ["recebido_em", "evento", "session_id", "modo"];
+var COLUNAS_EVENTOS = ["recebido_em", "evento", "session_id", "modo", "origem"];
 
 function doPost(e) {
   try {

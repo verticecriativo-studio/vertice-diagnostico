@@ -603,6 +603,21 @@ button:focus-visible, a:focus-visible{outline:2px solid var(--rust); outline-off
 
   const SESSION_ID = (crypto.randomUUID ? crypto.randomUUID() : (Date.now()+'-'+Math.random().toString(36).slice(2)));
 
+  // De onde a pessoa veio. Vem do parâmetro ?origem= no link (ex.: ?origem=pergunta).
+  // Sem parâmetro, cai no site que trouxe a pessoa (ref:instagram.com) ou em 'direto'.
+  const ORIGEM = (function(){
+    const bruto = params.get('origem') || params.get('utm_source') || '';
+    const limpo = bruto.toLowerCase().replace(/[^a-z0-9_-]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '').slice(0, 40);
+    if(limpo) return limpo;
+    try{
+      if(document.referrer){
+        const host = new URL(document.referrer).hostname.replace(/^www\./, '');
+        if(host && host !== location.hostname) return ('ref:' + host).slice(0, 40);
+      }
+    }catch(e){ /* referrer inválido — segue como direto */ }
+    return 'direto';
+  })();
+
   function sendEvent(evento){
     if(APPS_SCRIPT_URL.indexOf('COLOQUE_AQUI') !== -1) return;
     try{
@@ -610,7 +625,7 @@ button:focus-visible, a:focus-visible{outline:2px solid var(--rust); outline-off
         method: 'POST',
         mode: 'no-cors',
         headers: {'Content-Type': 'text/plain;charset=utf-8'},
-        body: JSON.stringify({ evento, session_id: SESSION_ID, timestamp: new Date().toISOString(), modo: isDraft ? 'rascunho' : 'oficial' })
+        body: JSON.stringify({ evento, session_id: SESSION_ID, timestamp: new Date().toISOString(), modo: isDraft ? 'rascunho' : 'oficial', origem: ORIGEM })
       });
     }catch(e){ /* falha silenciosa — não deve travar o formulário */ }
   }
@@ -812,7 +827,8 @@ button:focus-visible, a:focus-visible{outline:2px solid var(--rust); outline-off
       topa_call: givingContact ? !noCall : false,
       consentimento_lgpd: givingContact ? consentLgpd : false,
       submitted_at: new Date().toISOString(),
-      modo: isDraft ? 'rascunho' : 'oficial'
+      modo: isDraft ? 'rascunho' : 'oficial',
+      origem: ORIGEM
     };
 
     const btn = formEl.querySelector('button[type="submit"]');
